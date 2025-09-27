@@ -1,0 +1,1 @@
+{"detail":"Failed to fetch DEM from OpenTopography: OpenTopography API failed 401: <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><error>Error: API Key required for access. Please register for an API key at www.opentopography.org</error>"}
