@@ -1,12 +1,11 @@
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default function VolumeBox({ volume }) {
   const ref = useRef();
   useEffect(() => {
     if (!ref.current) return;
-  const width = 400, depth = 400;
+    const width = 200, depth = 200;
     const height = Math.max(Math.abs(volume) * 0.1, 1); // scale for visualization, min height 1
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xf0f0f0);
@@ -36,20 +35,7 @@ export default function VolumeBox({ volume }) {
   light.position.set(100, 200, 100);
   scene.add(light);
 
-    // Add orbit controls for interactive rotation
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.1;
-    controls.target.set(0, height / 2, 0);
-    controls.update();
-
-    // Animate for controls
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    }
-    animate();
+  renderer.render(scene, camera);
   }, [volume]);
-  return <div ref={ref} style={{ width: 400, height: 400, marginTop: 20 }} />;
+  return <div ref={ref} style={{ width: 200, height: 200, marginTop: 20 }} />;
 }
