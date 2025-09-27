@@ -34,18 +34,7 @@ export default function App(){
       {loading && <p>Processing... this may take a while for large files.</p>}
       {result && (
         <div style={{marginTop:20}}>
-          <h2>Results</h2>
-          <p>Max diff: {result.max_diff} m</p>
-          <p>Min diff: {result.min_diff} m</p>
-          <p>Mean diff: {result.mean_diff} m</p>
-          <p>Volume (approx): {result.volume_m3 !== null ? result.volume_m3.toFixed(2) + " m³" : "N/A (CRS units not metric)"}</p>
-          <div style={{width:800, height:500, border:'1px solid #ccc', marginTop:10}}>
-            <HeightmapViewer heightmapUrl={"http://localhost:8000" + result.heightmap_url} metaUrl={"http://localhost:8000" + result.meta_url} />
-          </div>
-          <div>
-            <h3>Volume Visualization</h3>
-            <VolumeBox volume={result.volume_m3} />
-          </div>
+          <VolumeBox volume={result.volume_m3} />
         </div>
       )}
     </div>

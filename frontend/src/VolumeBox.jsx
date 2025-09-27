@@ -6,7 +6,7 @@ export default function VolumeBox({ volume }) {
   const ref = useRef();
   useEffect(() => {
     if (!ref.current) return;
-    const width = 200, depth = 200;
+  const width = 400, depth = 400;
     const height = Math.max(Math.abs(volume) * 0.1, 1); // scale for visualization, min height 1
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xf0f0f0);
@@ -51,5 +51,5 @@ export default function VolumeBox({ volume }) {
     }
     animate();
   }, [volume]);
-  return <div ref={ref} style={{ width: 200, height: 200, marginTop: 20 }} />;
+  return <div ref={ref} style={{ width: 400, height: 400, marginTop: 20 }} />;
 }
